@@ -1,0 +1,15 @@
+server:
+  port: 8082
+  
+mourya:
+  hive:
+    connectionURL: jdbc:hive2://localhost:10000/default;principal=hive/localhost@ATHENA.MIT.EDU
+    username: mourya
+    password: password
+  kerberos:
+    keyTabLocation: ~/Security/mourya.keytab
+    krb5Location: ~/krb5.conf
+    priniciple: mourya@ATHENA.MIT.EDU
+    
+    
+    
