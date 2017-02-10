@@ -1,6 +1,7 @@
 # A Simple Spring Micro service to query hive using JdbcTemplate
-1.	Create a simple spring boot app in Spring Tool Suite IDE or Eclipse IDE. 
-2.	Add bellow dependencies to the pom.xml 
+
+### Create a simple spring boot app in Spring Tool Suite IDE or Eclipse IDE. 
+### Add bellow dependencies to the pom.xml 
 ```
 <dependency>
 			<groupId>org.mortbay.jetty</groupId>
@@ -41,7 +42,7 @@
 			<artifactId>spring-jdbc</artifactId>
 		</dependency>
 ```
-3.	Add Horton works repo to the pom.xml
+### Add Horton works repo to the pom.xml
 ```
 <repositories>
 		<repository>
@@ -51,16 +52,17 @@
 		</repository>
 	</repositories>
 ```
-4.	add properties in application.properties or application.yml in src/main/resources folder as shown bellow.
-
-Properties:
-  mourya.hive.connectionURL:  Hive connection string. We need to add principal to connection string if Kerberos authentication is enabled.
-  mourya.hive.usename: hive database username
-  mourya.hive.password: hive database password  
-      Need to fill bellow parameters if Kerberos authentication is enabled.
-  mourya.kerberos.keyTabLocation: Local keytab location
-  mourya.kerberos.krb5Location: local kerberos file location
-  mourya.kerberos.priniciple
+### Add properties in application.properties or application.yml in src/main/resources folder as shown bellow.
+ 
+  **mourya.hive.connectionURL**:  Hive connection string. We need to add principal to connection string if Kerberos authentication is enabled.   
+  **mourya.hive.usename**: hive database username  
+  **mourya.hive.password**: hive database password    
+  
+  **Note:** Need to fill bellow parameters if Kerberos authentication is enabled.  
+  
+  **mourya.kerberos.keyTabLocation**: Local keytab location  
+  **mourya.kerberos.krb5Location**: local kerberos file location  
+  **mourya.kerberos.priniciple**  
  
 ```
 mourya:
@@ -74,7 +76,7 @@ mourya:
     priniciple: mourya@ATHENA.MIT.EDU
 ```
     
-5.	Create a config class to initialize JdbcTemplate
+### Create a config class to initialize JdbcTemplate
 ```
 import java.io.IOException;
 import javax.sql.DataSource;
@@ -131,7 +133,7 @@ public class HiveDataSourceConfig {
 	}
 }
 ```
-6.	Create a Rest Controller in the Spring boot application
+### Create a Rest Controller in the Spring boot application
 ```
 package com.mourya.sample.controller;
 
@@ -172,15 +174,15 @@ public class SampleHiveController {
 	}
 }
 ```
-7.	In command prompt or terminal go to root folder of the project and install by using bellow command.  
+### In command prompt or terminal go to root folder of the project and install by using bellow command.  
 ```
 mvn clean install -DskipTests
 ```
-8.	Start the application
+### Start the application
 ```
 Java –jar target/SpringHiveJDBCTemplate -0.0.1-SNAPSHOT.jar
 ```
-9 . In terminal or command prompt use curl command to test the result. 
+### In terminal or command prompt use curl command to test the result. 
 ```
 Curl http://localhost:8082/hive/databases
 ```
