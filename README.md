@@ -1,0 +1,1 @@
+# spring_hive_jdbc_template
